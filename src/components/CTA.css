@@ -1,0 +1,105 @@
+.cta {
+    padding: var(--section-padding);
+    background: var(--gray-50);
+}
+
+.cta__card {
+    position: relative;
+    text-align: center;
+    padding: 80px 48px;
+    background: var(--black);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.cta__glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.06), transparent 70%);
+    pointer-events: none;
+}
+
+.cta__title {
+    font-size: var(--font-4xl);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cta__subtitle {
+    font-size: var(--font-base);
+    color: var(--gray-400);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 40px;
+    position: relative;
+}
+
+.cta__actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+}
+
+.cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-size: var(--font-sm);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+}
+
+.cta__btn--primary {
+    background: var(--white);
+    color: var(--black);
+}
+
+.cta__btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+}
+
+.cta__btn--primary svg {
+    transition: transform var(--transition-base);
+}
+
+.cta__btn--primary:hover svg {
+    transform: translateX(3px);
+}
+
+.cta__btn--ghost {
+    color: var(--gray-300);
+    border: 1.5px solid var(--gray-700);
+}
+
+.cta__btn--ghost:hover {
+    border-color: var(--gray-500);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cta__card {
+        padding: 60px 24px;
+    }
+
+    .cta__title {
+        font-size: var(--font-3xl);
+    }
+
+    .cta__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}

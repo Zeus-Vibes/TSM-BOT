@@ -1,0 +1,116 @@
+.about {
+    padding: var(--section-padding);
+    background: var(--white);
+}
+
+.about__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about__text {
+    font-size: var(--font-base);
+    color: var(--gray-500);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.about__metrics {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.about__metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.about__metric-value {
+    font-size: var(--font-2xl);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--black);
+}
+
+.about__metric-label {
+    font-size: var(--font-xs);
+    font-weight: 500;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Floating cards visual */
+.about__visual {
+    position: relative;
+    height: 400px;
+}
+
+.about__card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-base);
+}
+
+.about__card:hover {
+    transform: translateY(-4px) !important;
+}
+
+.about__card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--gray-100);
+    border-radius: var(--radius-sm);
+    color: var(--black);
+}
+
+.about__card--1 {
+    top: 20%;
+    left: 10%;
+    animation: float 4s ease-in-out infinite;
+}
+
+.about__card--2 {
+    top: 45%;
+    right: 5%;
+    animation: float 4s ease-in-out infinite 1s;
+}
+
+.about__card--3 {
+    bottom: 10%;
+    left: 20%;
+    animation: float 4s ease-in-out infinite 2s;
+}
+
+@media (max-width: 768px) {
+    .about__inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .about__visual {
+        height: 280px;
+    }
+
+    .about__metrics {
+        gap: 24px;
+    }
+}

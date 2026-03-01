@@ -1,0 +1,195 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    background: var(--white);
+}
+
+/* ========================================================
+   Cursor glow
+   ======================================================== */
+.hero__glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.04) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* ========================================================
+   Background text — anchored to top
+   ======================================================== */
+.hero__bg-text {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    font-size: clamp(5rem, 12vw, 14rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    color: var(--gray-100);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ========================================================
+   Spline bot — foreground, full viewport
+   ======================================================== */
+.hero__spline {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__spline spline-viewer {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ========================================================
+   Watermark cover
+   ======================================================== */
+.hero__watermark-cover {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 280px;
+    height: 64px;
+    z-index: 10;
+    background: var(--white);
+    box-shadow: -10px -10px 20px var(--white);
+    pointer-events: none;
+}
+
+/* ========================================================
+   CTAs — opposite sides
+   ======================================================== */
+.hero__cta {
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-size: var(--font-sm);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+    text-decoration: none;
+}
+
+.hero__cta--left {
+    bottom: 60px;
+    left: 5vw;
+    background: var(--black);
+    color: var(--white);
+}
+
+.hero__cta--left:hover {
+    background: var(--gray-800);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero__cta--left svg {
+    transition: transform var(--transition-base);
+}
+
+.hero__cta--left:hover svg {
+    transform: translateX(3px);
+}
+
+.hero__cta--right {
+    bottom: 60px;
+    right: 5vw;
+    background: transparent;
+    color: var(--black);
+    border: 1.5px solid var(--gray-300);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.hero__cta--right:hover {
+    border-color: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hero__cta--right svg {
+    transition: transform var(--transition-base);
+}
+
+.hero__cta--right:hover svg {
+    transform: translateY(3px);
+}
+
+/* ========================================================
+   Scroll indicator
+   ======================================================== */
+.hero__scroll-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    animation: fadeIn 1s ease-out 1.2s both;
+}
+
+.hero__scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--gray-300), transparent);
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* ========================================================
+   Responsive
+   ======================================================== */
+@media (max-width: 768px) {
+    .hero__bg-text {
+        font-size: clamp(3rem, 15vw, 6rem);
+        top: 90px;
+    }
+
+    .hero__cta--left {
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero__cta--left:hover {
+        transform: translateX(-50%) translateY(-3px);
+    }
+
+    .hero__cta--right {
+        bottom: 40px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .hero__cta--right:hover {
+        transform: translateX(50%) translateY(-3px);
+    }
+
+    .hero__scroll-indicator {
+        display: none;
+    }
+
+    .hero__glow {
+        display: none;
+    }
+}
